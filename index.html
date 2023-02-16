@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta chartset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>swggy card</title>
+	<script src="https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js"></script>
+	<style>
+		*{
+			box-sizing:border-box;
+		}
+		.container{
+			padding:10px;
+			
+		
+		}
+		.row{
+			display:flex;
+			flex-wrap:wrap;
+			justify-content:space-between;
+		}
+		.col{
+			width:25%;
+			
+		}
+		img{
+			width:100%;
+			height:auto;
+		}
+		.col-card{
+			padding:20px;
+			margin:10px;
+			border-radius:5px;
+			
+		}
+		h3{
+		 text-align:center;
+		 color:white;
+		}
+		.col-card:hover{
+			border:solid 1px #80808066;
+			box-shadow:0 0 2px #ccc;
+		}
+		.col-card:hover h3{
+			color:blue;
+		}
+		.icon-style{
+			vertical-align:center;
+			margin-right:10px;
+		}
+		.view-page{
+			border-top:1px solid rgb(128 128 128 / 19%);
+			display:none;
+			opacity:0;
+			visibility:hidden;
+			padding-top:15px;
+		}
+		.col-card:hover .view-page{
+			display:block;
+			opacity:1;
+			visibility:visible;
+		}
+		
+		
+	</style>
+	
+</head>
+<body>
+
+	<div class="container">
+	
+	</div>
+	
+	
+	<script>
+		let foodList=[
+			{
+			id:1,
+			name:"Alaya Bakery & Sweets",
+			cusine:"Vannarpettai, Vasantha Nager",
+			rating:3.8,
+			time:"28MINS",
+			amount:"₹ 250 FOR TWO",
+			discount:"50% off|Use WELCOME50",
+			view:"QUICK VIEW",
+			imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/u7mfwq3mymmissidholz"
+			},
+			{
+			id:2,
+			name:"Hotel Raja",
+			cusine:"Vannarpettai,Trivandrum Road, Vannarpettai",
+			rating:4.1,
+			time:"27MINS",
+			amount:"₹ 600 FOR TWO",
+			discount:"50% off|Use WELCOME50",
+			view:"QUICK VIEW",
+			imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ffrpmgfwm4zxazisnc3a"
+			},
+			{
+			id:3,
+			name:"Dindigul Thalappakatti",
+			cusine:"Vannarpettai, Vasantha Nager",
+			rating:3.7,
+			time:"26MINS",
+			amount:"₹ 400 FOR TWO",
+			discount:"50% off|Use WELCOME50",
+			view:"QUICK VIEW",
+			imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/bkjibtgotmkpwmustjs8"
+			},
+			{
+			id:4,
+			name:"Anjappar",
+			cusine:"Vannarpettai, Kamaraj Nagar",
+			rating:3.8,
+			time:"19MINS",
+			amount:"₹ 350 FOR TWO",
+			discount:"50% off|Use WELCOME50",
+			view:"QUICK VIEW",
+			imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/a0td6wexztohncgovgep"
+			},
+			{
+			id:5,
+			name:"Sithi Kitchen",
+			cusine:"vannarpettai, Vasantha Nager",
+			rating:4.0,
+			time:"18MINS",
+			amount:"₹ 250 FOR TWO",
+			discount:"50% off|Use WELCOME50",
+			view:"QUICK VIEW",
+			imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/mmtlklv3f2jsw4fssobk"
+			},
+			{
+			id:6,
+			name:"KFC",
+			cusine:"South Bypass Road, Vannnarpet",
+			rating:4.1,
+			time:"29MINS",
+			amount:"₹ 400 FOR TWO",
+			discount:"50% off|Use WELCOME50",
+			view:"QUICK VIEW",
+			imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/bdcd233971b7c81bf77e1fa4471280eb"
+			},
+			{
+			id:7,
+			name:"Zam Zam Briyani",
+			cusine:"Thirunagar, Palayamkottai",
+			rating:4.1,
+			time:"27MINS",
+			amount:"₹ 600 FOR TWO",
+			discount:"50% off|Use WELCOME50",
+			view:"QUICK VIEW",
+			imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/hap0jhzaxippdt6r1nie"
+			},
+			{
+			id:8,
+			name:"Hotel Vairamaligai ",
+			cusine:"Vannarpettai, srinivasanagar",
+			rating:3.7,
+			time:"26MINS",
+			amount:"₹ 400 FOR TWO",
+			discount:"50% off|Use WELCOME50",
+			view:"QUICK VIEW",
+			imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/nzqdxdypqstz08duy2pt"
+			},
+			{
+			id:9,
+			name:"Hotel Elango-Junction",
+			cusine:"Vannarpettai, junction",
+			rating:3.9,
+			time:"28MINS",
+			amount:"₹ 250 FOR TWO",
+			discount:"50% off|Use WELCOME50",
+			view:"QUICK VIEW",
+			imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/eepa28ydtq3vgmdvjzsf"
+			},
+			{
+			id:10,
+			name:"Hotel Varnams Multi Cuisine Restaurant",
+			cusine:"Vannarpettai, Kokkirakulam",
+			rating:3.9,
+			time:"26MINS",
+			amount:"₹ 400 FOR TWO",
+			discount:"50% off|Use WELCOME50",
+			view:"QUICK VIEW",
+			imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/ziqiyr4knna5rkfoczdx"
+			},
+			{
+			id:11,
+			name:"Chennai BUHARI HOTEL",
+			cusine:"VANNARPETAI, Vannarpettai",
+			rating:3.9,
+			time:"29MINS",
+			amount:"₹ 400 FOR TWO",
+			discount:"50% off|Use WELCOME50",
+			view:"QUICK VIEW",
+			imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/d0susiyl8hpjuyxufqhz"
+			},
+			{
+			id:12,
+			name:"Aasife Biriyani ",
+			cusine:"Vannarpettai, Vannerpettai",
+			rating:4.0,
+			time:"28MINS",
+			amount:"₹ 380 FOR TWO",
+			discount:"50% off|Use WELCOME50",
+			view:"QUICK VIEW",
+			imgUrl:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/glpmhlojsnrnfy7cmaiz"
+			}
+			
+			
+			
+		]
+		
+		let cont=document.querySelector(".container");
+		let cards=document.createElement("div");
+		cards.classList.add("row");
+		cont.appendChild(cards);
+		
+		foodList.forEach(function(e){
+			let div=document.createElement("div");
+			div.classList.add("col");
+			cards.appendChild(div);
+			div.style.minHeight="495px";
+			
+			let div2=document.createElement("div");
+			div2.classList.add("col-card");
+			div.appendChild(div2);
+			
+			let img=document.createElement("img");
+			img.src=e.imgUrl;
+			div2.appendChild(img);
+			
+			
+			let head=document.createElement("h2");
+			head.innerHTML=e.name;
+			div2.appendChild(head);
+			head.style.fontSize="18px";
+			head.style.margin="10px 0";
+			
+			let para=document.createElement("p");
+			para.innerHTML=e.cusine;
+			div2.appendChild(para);
+			para.style.color="gray";
+			para.style.margin="10px 0";
+			para.style.fontSize="14px";
+			
+			let div3=document.createElement("div");
+			div3.classList.add("row");
+			div2.appendChild(div3);
+			
+			
+			let para2=document.createElement("p");
+			para2.innerHTML=`<iconify-icon icon="material-symbols:star"></iconify-icon>${e.rating}`;
+			div3.appendChild(para2);
+			para2.style.backgroundColor="#1ee21e";
+			para2.style.color="white";
+			para2.style.padding="0 4px";
+			
+			
+			let para3=document.createElement("p");
+			para3.innerHTML=e.time;
+			div3.appendChild(para3);
+			para3.style.fontSize="14px";
+			para3.style.padding="5px";
+			
+			let para4=document.createElement("p");
+			para4.innerHTML=e.amount;
+			div3.appendChild(para4);
+			para4.style.fontSize="14px";
+			para4.style.padding="5px";
+			
+			
+			let para5=document.createElement("p");
+			para5.innerHTML=`<iconify-icon class="icon-style" icon="teenyicons:discount-solid"></iconify-icon>${e.discount}`;
+			div2.appendChild(para5);
+			para5.style.color="brown";
+			para5.style.fontWeight="600";
+			para5.style.borderTop="1px solid rgb(128 128 128 / 19%)";
+			para5.style.paddingTop="10px"
+			
+			
+			let head2=document.createElement("h3");
+			head2.classList.add("view-page");
+			head2.innerHTML=e.view;
+			div2.appendChild(head2);
+			head2.style.fontSize="12px";
+			
+		});
+			
+		
+	
+		console.log(cont);
+	</script>
+</body>
+</html>
